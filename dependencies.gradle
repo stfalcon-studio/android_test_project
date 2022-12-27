@@ -1,0 +1,79 @@
+//region ------------------------PROJECT----------------------------
+def projectSettings = [:]
+projectSettings.keyAlias = "TestAliat"
+projectSettings.keyPassword = "TestPassword"
+projectSettings.storePassword = "TestPassword"
+projectSettings.storeFile = "TemplateKeys.jks"
+
+ext.projectSettings = projectSettings
+//endregion ---------------------------------------------------------
+
+//region ------------------------Build Type settings----------------------------
+def buildTypeSettings = [:]
+buildTypeSettings.stagingBaseUrl = "https://private-f64b2-zipoapps.apiary-mock.com/"
+buildTypeSettings.prodBaseUrl = "https://private-f64b2-zipoapps.apiary-mock.com/"
+
+ext.buildTypeSettings = buildTypeSettings
+//endregion ---------------------------------------------------------
+
+//region ------------------------SETTINGS----------------------------
+def buildSettings = [:]
+buildSettings.minSdk = 24
+buildSettings.targetSdk = 33
+buildSettings.compileSdk = 33
+
+buildSettings.versionCode = 1
+buildSettings.versionName = "1"
+
+ext.buildSettings = buildSettings
+//endregion ---------------------------------------------------------
+
+//region ------------------------VERSIONS----------------------------
+def versions = [:]
+//plugins
+versions.kotlinVersion = "1.7.10"
+versions.firebaseCrashlyticsGradle = '2.8.1'
+versions.firebaseDistributionPlugin = "2.1.1"
+versions.googleServicesPlugin = "4.3.10"
+versions.androidGradlePlugin = '7.2.1'
+//libraries
+versions.androidKtxVersion = '1.9.0'
+versions.constraintlayoutVersion = '2.1.4'
+versions.appCompatVersion = '1.5.1'
+versions.legacySupportVersion = '1.0.0'
+versions.activityKtxVersion = '1.7.0-alpha02'
+versions.fragmentKtxVersion = '1.5.5'
+versions.viewModelKtx = "2.6.0-alpha03"
+versions.runtimeKtx = "2.6.0-alpha03"
+versions.materialVersion = '1.7.0'
+versions.glideVersion = '4.14.2'
+versions.glideTransformationVersion = '4.3.0'
+versions.koinVersion = "3.1.2"
+versions.koinExtVersion = "3.0.2"
+versions.viewBindingUtils = "1.5.2"
+versions.splittiesVersion = "3.0.0-rc01"
+versions.coroutinesVerison = "1.6.4"
+versions.navigationVersion = '2.5.3'
+versions.timberVersion = '5.0.1'
+versions.timberKtVersion = '1.5.1'
+
+versions.swiperefreshlayout = "1.1.0"
+
+versions.retrofitVersion = '2.9.0'
+versions.okHttpVersion = '4.9.3'
+versions.gsonVersion = '2.9.0'
+
+ext.versions = versions
+//endregion ---------------------------------------------------------
+
+static def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.mavenCentral()
+    handler.jcenter()
+    handler.gradlePluginPortal()
+    handler.maven { url 'https://jitpack.io' }
+}
+
+ext.addRepos = this.&addRepos
+
+

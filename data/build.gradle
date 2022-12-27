@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.zipoapps.android'
+    compileSdk buildSettings.compileSdk
+
+    defaultConfig {
+        minSdk buildSettings.minSdk
+        targetSdk buildSettings.targetSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "staging"
+    flavorDimensions "prod"
+
+    productFlavors {
+        staging {
+            buildConfigField "String", "API_BASE_URL", "\"$buildTypeSettings.stagingBaseUrl\""
+        }
+        prod {
+            buildConfigField "String", "API_BASE_URL", "\"$buildTypeSettings.prodBaseUrl\""
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(':domain')
+    implementation project(path: ':domain')
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "androidx.core:core-ktx:$versions.androidKtxVersion"
+    implementation "androidx.appcompat:appcompat:$versions.appCompatVersion"
+    implementation "com.google.android.material:material:$versions.materialVersion"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesVerison"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutinesVerison"
+
+    //DI
+    api "io.insert-koin:koin-android:$versions.koinVersion"
+    implementation "io.insert-koin:koin-android-ext:$versions.koinExtVersion"
+
+    //Retrofit (REST)
+    api "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
+    api "com.squareup.retrofit2:converter-gson:$versions.gsonVersion"
+    api "com.google.code.gson:gson:$versions.gsonVersion"
+    api "com.squareup.okhttp3:okhttp:$versions.okHttpVersion"
+    api "com.squareup.okhttp3:logging-interceptor:$versions.okHttpVersion"
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/nav_track">
+
+    <fragment
+        android:id="@+id/nav_track"
+        android:name="com.zipoapps.android.features.track.TrackFragment"
+        android:label="TrackFragment"
+        tools:layout="@layout/fragment_track"/>
+
+    <fragment
+        android:id="@+id/nav_history"
+        android:name="com.zipoapps.android.features.history.HistoryFragment"
+        android:label="HistoryFragment"
+        tools:layout="@layout/fragment_history"/>
+
+    <fragment
+        android:id="@+id/nav_info"
+        android:name="com.zipoapps.android.features.info.InfoFragment"
+        android:label="InfoFragment"
+        tools:layout="@layout/fragment_info">
+        <action
+            android:id="@+id/action_nav_info_to_postsFragment"
+            app:destination="@id/postsFragment"
+            app:enterAnim="@anim/enter_from_left"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_right"
+            app:popExitAnim="@anim/exit_to_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.zipoapps.android.features.settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings"/>
+
+    <activity
+        android:id="@+id/postsFragment"
+        android:name="com.zipoapps.android.features.posts.PostsActivity"
+        android:label="PostsFragment"
+        tools:layout="@layout/activity_posts">
+        <argument
+            android:name="user"
+            app:argType="com.zipoapps.android.common.models.UserModel" />
+    </activity>
+
+
+</navigation>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/trackToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/trackTitleTv"
+        style="@style/Title.Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/track_title"
+        app:layout_constraintBottom_toTopOf="@+id/trackToolbarDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/trackContentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/background_empty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trackToolbar">
+
+        <ImageView
+            android:id="@+id/trackEmptyIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="21dp"
+            android:src="@drawable/ic_measurment_empty"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/trackEmptyTitleTv"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/trackEmptyTitleTv"
+            style="@style/Body.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="@string/track_empty_title"
+            android:gravity="center_horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/trackEmptyCenterView"/>
+
+        <View
+            android:id="@+id/trackEmptyCenterView"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/trackEmptyDescriptionTv"
+            style="@style/Label.ExtraLarge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/track_empty_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trackEmptyCenterView"/>
+
+        <Button
+            android:id="@+id/trackEmptyAddMeasurementBtn"
+            style="@style/ButtonPrimary.Drawable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:drawableStart="@drawable/ic_add_white"
+            android:text="@string/track_empty_add"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trackEmptyDescriptionTv"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/trackEmptyGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="trackEmptyIv,trackEmptyTitleTv,trackEmptyDescriptionTv,trackEmptyAddMeasurementBtn"/>
+
+        <include
+            android:id="@+id/loadingContainer"
+            layout="@layout/part_view_loading" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/trackToolbarDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/view_shadow_bottom"
+        app:layout_constraintTop_toBottomOf="@+id/trackToolbar" />
+
+    <com.zipoapps.android.common.ui.error.ErrorItem
+        android:id="@+id/errorItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

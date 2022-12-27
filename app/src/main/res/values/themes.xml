@@ -1,0 +1,88 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.SampleApp" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/black</item>
+    </style>
+
+    <style name="Text" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="Title" parent="Text" />
+
+    <style name="Body" parent="Text" />
+
+    <style name="Label" parent="Text">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/gray_text</item>
+    </style>
+
+    <style name="Title.Large" parent="Title">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="Title.Medium" parent="Title">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Body.Large" parent="Body">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Body.Medium" parent="Body">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Body.Small" parent="Body">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Label.ExtraLarge" parent="Label">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Label.Large" parent="Label">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Label.Medium" parent="Label">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <!--Button -->
+    <style name="ButtonPrimary">
+        <item name="android:background">@drawable/selector_button_primary</item>
+        <item name="android:textColor">@color/selector_button_primary_text</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:elevation">3dp</item>
+    </style>
+
+    <style name="ButtonPrimary.Drawable" parent="ButtonPrimary">
+        <item name="android:background">@drawable/selector_button_primary</item>
+        <item name="android:textColor">@color/selector_button_primary_text</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:foreground">@null</item>
+        <item name="android:elevation">3dp</item>
+    </style>
+
+</resources>
